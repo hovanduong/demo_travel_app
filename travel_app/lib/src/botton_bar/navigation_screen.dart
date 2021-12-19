@@ -20,7 +20,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
           topLeft: Radius.circular(40),
         ),
         child: BottomNavigationBar(
-          selectedItemColor: Colors.blue,
+          selectedItemColor: Color(0xFF537EF1),
           unselectedItemColor: Colors.black87,
           onTap: onTabTapped,
           currentIndex: currentIndex,

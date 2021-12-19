@@ -65,7 +65,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   ),
                                   child: const Icon(
                                     Icons.favorite,
-                                    color: Colors.blue,
+                                    color: Color(0xFF537EF1),
                                     size: 25,
                                   ),
                                 ),
