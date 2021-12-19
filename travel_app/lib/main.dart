@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:travel_app/src/botton_bar/navigation_screen.dart';
 import 'package:travel_app/src/home/home_screen.dart';
 
 void main() {
@@ -16,9 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const HomeScreen()
-      ,
+      home:  NavigationScreen(),
     );
   }
 }
-
