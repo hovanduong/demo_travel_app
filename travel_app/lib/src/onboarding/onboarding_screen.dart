@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:travel_app/src/onboarding/components/widget_text.dart';
+import 'package:travel_app/src/resource/model/onboarding.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({Key? key}) : super(key: key);
@@ -12,10 +13,15 @@ class OnboardingScreen extends StatefulWidget {
 }
 
 class _OnboardingScreenState extends State<OnboardingScreen> {
-  List images = [
-    'assets/svg/2.svg',
-    'assets/svg/2.svg',
-    'assets/svg/1.svg',
+  // List images = [
+  //   'assets/svg/5.png',
+  //   'assets/svg/6.png',
+  //   'assets/svg/5.png',
+  // ];
+  List<OnBoarding> onBoarding = [
+    OnBoarding(image: 'assets/svg/5.png', colors: 'FFFEBE96', radix: 18),
+    OnBoarding(image: 'assets/svg/6.png', colors: 'FFFEBE96', radix: 19),
+    OnBoarding(image: 'assets/svg/5.png', colors: 'FFFEBE96', radix: 18),
   ];
   var curentPage = 0;
   var pageviewController = PageController(
@@ -31,7 +37,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
   autoNextPage() {
     Timer.periodic(const Duration(seconds: 5), (timer) {
-      if (curentPage < images.length - 1) {
+      if (curentPage < onBoarding.length - 1) {
         setState(() {
           curentPage = curentPage + 1;
         });
@@ -55,10 +61,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           onPageChanged: (index) => onPageChange(index),
           controller: pageviewController,
           scrollDirection: Axis.vertical,
-          itemCount: images.length,
+          itemCount: onBoarding.length,
           itemBuilder: (_, index) {
             return Container(
-              color: Colors.red,
+              color: Color(int.parse(onBoarding[index].colors,
+                  radix: onBoarding[index].radix)),
               child: Column(
                 children: [
                   Expanded(
@@ -114,8 +121,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   ),
                   Expanded(
                       flex: 2,
-                      child: SvgPicture.asset(
-                        images[index],
+                      child: Image.asset(
+                        onBoarding[index].image,
                       ))
                 ],
               ),
