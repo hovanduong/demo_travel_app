@@ -19,7 +19,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   //   'assets/svg/5.png',
   // ];
   List<OnBoarding> onBoarding = [
-    OnBoarding(image: 'assets/svg/5.png', colors: 'FFFEBE96', radix: 18),
+    OnBoarding(image: 'assets/svg/5.png', colors: 'FF68e1fd', radix: 18),
     OnBoarding(image: 'assets/svg/6.png', colors: 'FFFEBE96', radix: 19),
     OnBoarding(image: 'assets/svg/5.png', colors: 'FFFEBE96', radix: 18),
   ];
@@ -64,8 +64,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           itemCount: onBoarding.length,
           itemBuilder: (_, index) {
             return Container(
-              color: Color(int.parse(onBoarding[index].colors,
-                  radix: onBoarding[index].radix)),
+              color: Color(0xFF98e2f3),
+              // Color(int.parse(
+              //   onBoarding[index].colors,
+              // )),
               child: Column(
                 children: [
                   Expanded(
@@ -81,12 +83,12 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                             children: const [
                               WidgetText(
                                   text: 'Enjoy',
-                                  color: Colors.black,
+                                  color: Colors.white,
                                   fontWeight: FontWeight.bold,
                                   size: 40),
                               WidgetText(
                                   text: 'the world!',
-                                  color: Colors.black87,
+                                  color: Colors.white70,
                                   fontWeight: FontWeight.normal,
                                   size: 40),
                               SizedBox(height: 10),
@@ -95,7 +97,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                                 child: WidgetText(
                                     text:
                                         'Our travel agents are experts at handcrafting and coordinating complex itnieraries around the world!',
-                                    color: Colors.grey,
+                                    color: Colors.white,
                                     fontWeight: FontWeight.normal,
                                     size: 20),
                               )
@@ -111,7 +113,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                                     borderRadius: BorderRadius.circular(8),
                                     color: index == indexList
                                         ? Colors.black
-                                        : Colors.grey.withOpacity(0.3)),
+                                        : Colors.white.withOpacity(0.3)),
                               );
                             }),
                           )
