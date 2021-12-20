@@ -10,7 +10,7 @@ class OnboardingScreen extends StatefulWidget {
 
 class _OnboardingScreenState extends State<OnboardingScreen> {
   List images = [
-    'assets/images/a.png',
+    'assets/images/duong1.png',
     'assets/images/image2.jpg',
     'assets/images/image3.jpg'
   ];
