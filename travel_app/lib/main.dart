@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:travel_app/src/botton_bar/navigation_screen.dart';
-import 'package:travel_app/src/home/home_screen.dart';
+import 'package:flutter/services.dart';
 
 import 'src/onboarding/onboarding_screen.dart';
 
 void main() {
+  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+    statusBarColor: Colors.transparent,
+    statusBarIconBrightness: Brightness.dark,
+  ));
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 
