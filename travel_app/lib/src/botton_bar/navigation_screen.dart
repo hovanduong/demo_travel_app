@@ -54,8 +54,8 @@ class _NavigationScreenState extends State<NavigationScreen> {
 
   int currentIndex = 0;
   List<Widget> widgetOptions = <Widget>[
+    HomeScreen(),
     Text('data'),
-    Text('data1'),
     HomeScreen(),
     Text('data1'),
   ];

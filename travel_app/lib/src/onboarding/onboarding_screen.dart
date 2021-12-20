@@ -2,6 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:travel_app/src/botton_bar/navigation_screen.dart';
+import 'package:travel_app/src/home/home_screen.dart';
 import 'package:travel_app/src/onboarding/components/widget_text.dart';
 import 'package:travel_app/src/resource/model/onboarding.dart';
 
@@ -40,6 +42,14 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       if (curentPage < onBoarding.length - 1) {
         setState(() {
           curentPage = curentPage + 1;
+          if (curentPage == onBoarding.length - 1) {
+            Future.delayed(const Duration(seconds: 3), () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => NavigationScreen()),
+              );
+            });
+          }
         });
       }
       pageviewController.animateToPage(curentPage,
@@ -65,9 +75,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           itemBuilder: (_, index) {
             return Container(
               color: Color(0xFF98e2f3),
-              // Color(int.parse(
-              //   onBoarding[index].colors,
-              // )),
               child: Column(
                 children: [
                   Expanded(
