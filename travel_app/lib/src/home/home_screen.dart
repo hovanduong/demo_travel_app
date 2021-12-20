@@ -14,98 +14,103 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: Color(0xFFF3F5FB),
         body: SafeArea(
             child: ListView(
-      physics: const BouncingScrollPhysics(),
-      children: [
-        _buildTitle(),
-        _buildTabs(),
-        const SizedBox(height: 30),
-        ...List.generate(ListTravel.listTravel.length, (index) {
-          return Padding(
-            padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 40),
-            child: Container(
-              height: 200,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                color: Colors.white,
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 10, vertical: 10),
-                    child: Container(
-                      height: 130,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          image: DecorationImage(
-                            fit: BoxFit.cover,
-                            image: ExactAssetImage(
-                                ListTravel.listTravel[index].image),
-                          )),
-                      child: Stack(
-                        alignment: Alignment.topRight,
-                        children: [
-                          Positioned(
-                              child: Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.symmetric(
-                                    horizontal: 10, vertical: 10),
-                                child: Container(
-                                  height: 50,
-                                  width: 50,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(25),
-                                    color: Colors.white,
-                                  ),
-                                  child: const Icon(
-                                    Icons.favorite,
-                                    color: Color(0xFF537EF1),
-                                    size: 25,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ))
-                        ],
-                      ),
-                    ),
+          physics: const BouncingScrollPhysics(),
+          children: [
+            const SizedBox(height: 30),
+            _buildTitle(),
+            _buildTabs(),
+            const SizedBox(height: 30),
+            ...List.generate(ListTravel.listTravel.length, (index) {
+              return Padding(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 10, horizontal: 40),
+                child: Container(
+                  height: 260,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.white,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 10, vertical: 10),
+                        child: Container(
+                          height: 180,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              image: DecorationImage(
+                                fit: BoxFit.cover,
+                                image: ExactAssetImage(
+                                    ListTravel.listTravel[index].image),
+                              )),
+                          child: Stack(
+                            alignment: Alignment.topRight,
+                            children: [
+                              Positioned(
+                                  child: Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 10, vertical: 10),
+                                    child: Container(
+                                      height: 50,
+                                      width: 50,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(25),
+                                        color: Colors.white,
+                                      ),
+                                      child: const Icon(
+                                        Icons.favorite,
+                                        color: Color(0xFF537EF1),
+                                        size: 25,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ))
+                            ],
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(ListTravel.listTravel[index].name,
-                                style: const TextStyle(
-                                    fontWeight: FontWeight.bold)),
-                            const SizedBox(height: 5),
-                            Text(ListTravel.listTravel[index].date,
-                                style: const TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.grey))
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(ListTravel.listTravel[index].name,
+                                    style: const TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 18)),
+                                const SizedBox(height: 5),
+                                Text(ListTravel.listTravel[index].date,
+                                    style: const TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 15,
+                                        color: Colors.grey))
+                              ],
+                            ),
+                            const Icon(Icons.arrow_forward_ios_rounded,
+                                size: 18, color: Colors.grey)
                           ],
                         ),
-                        const Icon(Icons.arrow_forward_ios_rounded,
-                            size: 20, color: Colors.grey)
-                      ],
-                    ),
-                  )
-                ],
-              ),
-            ),
-          );
-        })
-      ],
-    )));
+                      )
+                    ],
+                  ),
+                ),
+              );
+            })
+          ],
+        )));
   }
 
   Widget _buildTabs() {
@@ -127,13 +132,13 @@ class _HomeScreenState extends State<HomeScreen> {
           isScrollable: true,
           tabs: const [
             Tab(
-              child: Text('Sights'),
+              child: Text('Sights', style: TextStyle(fontSize: 18)),
             ),
             Tab(
-              child: Text('Tours'),
+              child: Text('Tours', style: TextStyle(fontSize: 18)),
             ),
             Tab(
-              child: Text('Adventures'),
+              child: Text('Adventures', style: TextStyle(fontSize: 18)),
             ),
           ],
         ),
