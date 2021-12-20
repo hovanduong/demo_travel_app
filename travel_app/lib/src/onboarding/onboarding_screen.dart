@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:travel_app/src/onboarding/components/widget_text.dart';
 
 class OnboardingScreen extends StatefulWidget {
@@ -10,10 +11,13 @@ class OnboardingScreen extends StatefulWidget {
 
 class _OnboardingScreenState extends State<OnboardingScreen> {
   List images = [
-    'assets/images/duong1.png',
-    'assets/images/image2.jpg',
-    'assets/images/image3.jpg'
+    'assets/svg/on_boarding1.svg',
+    'assets/svg/on_boarding2.svg',
+    'assets/svg/on_boarding3.svg',
   ];
+  final Widget svg = new SvgPicture.asset(
+    "assets/image.svg",
+  );
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,39 +25,55 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           scrollDirection: Axis.vertical,
           itemCount: images.length,
           itemBuilder: (_, index) {
-            return Container(
-              width: double.maxFinite,
-              height: double.maxFinite,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage(images[index]), fit: BoxFit.cover),
-              ),
-              child: Container(
-                margin: const EdgeInsets.only(top: 150, left: 20, right: 20),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [WidgetText(text: 'TRIPS', color: Colors.red)],
+            return Column(
+              children: [
+                Expanded(
+                  flex: 1,
+                  child: Container(
+                    margin: const EdgeInsets.only(top: 80, left: 20, right: 20),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: const [
+                            WidgetText(
+                                text: 'Enjoy',
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                                size: 30),
+                            WidgetText(
+                                text: 'the world!',
+                                color: Colors.black87,
+                                fontWeight: FontWeight.normal,
+                                size: 30),
+                            WidgetText(
+                                text: 'the world!',
+                                color: Colors.black87,
+                                fontWeight: FontWeight.normal,
+                                size: 30)
+                          ],
+                        ),
+                        Column(
+                          children: List.generate(3, (indexList) {
+                            return Container(
+                              margin: const EdgeInsets.only(bottom: 2),
+                              width: 8,
+                              height: index == indexList ? 25 : 8,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(8),
+                                  color: index == indexList
+                                      ? Colors.red
+                                      : Colors.white.withOpacity(0.3)),
+                            );
+                          }),
+                        )
+                      ],
                     ),
-                    Column(
-                      children: List.generate(3, (indexList) {
-                        return Container(
-                          margin: const EdgeInsets.only(bottom: 2),
-                          width: 8,
-                          height: index == indexList ? 25 : 8,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(8),
-                              color: index == indexList
-                                  ? Colors.red
-                                  : Colors.white.withOpacity(0.3)),
-                        );
-                      }),
-                    )
-                  ],
+                  ),
                 ),
-              ),
+                Expanded(flex: 2, child: SvgPicture.asset(images[index]))
+              ],
             );
           }),
     );
