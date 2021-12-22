@@ -1,9 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:travel_app/src/botton_bar/navigation_screen.dart';
-import 'package:travel_app/src/home/home_screen.dart';
 import 'package:travel_app/src/onboarding/components/widget_text.dart';
 import 'package:travel_app/src/resource/model/onboarding.dart';
 
