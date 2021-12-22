@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:travel_app/src/home/components/circle_tab_indicator.dart';
+import 'package:travel_app/src/home_details/home_details_screen.dart';
 import 'package:travel_app/src/resource/model/list_travel_model.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -27,84 +28,99 @@ class _HomeScreenState extends State<HomeScreen> {
               return Padding(
                 padding:
                     const EdgeInsets.symmetric(vertical: 10, horizontal: 40),
-                child: Container(
-                  height: 260,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Colors.white,
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 10, vertical: 10),
-                        child: Container(
-                          height: 180,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              image: DecorationImage(
-                                fit: BoxFit.cover,
-                                image: ExactAssetImage(
-                                    ListTravel.listTravel[index].image),
+                child: InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => HomeDetailsScreen(
+                                travel: ListTravel.listTravel[index],
                               )),
-                          child: Stack(
-                            alignment: Alignment.topRight,
-                            children: [
-                              Positioned(
-                                  child: Row(
-                                mainAxisAlignment: MainAxisAlignment.end,
+                    );
+                  },
+                  child: Container(
+                    height: 260,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.white,
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 10, vertical: 10),
+                          child: Hero(
+                            tag: ListTravel.listTravel[index].id ,
+                            child: Container(
+                              height: 180,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  image: DecorationImage(
+                                    fit: BoxFit.cover,
+                                    image: ExactAssetImage(
+                                        ListTravel.listTravel[index].image),
+                                  )),
+                              child: Stack(
+                                alignment: Alignment.topRight,
                                 children: [
-                                  Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 10, vertical: 10),
-                                    child: Container(
-                                      height: 50,
-                                      width: 50,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(25),
-                                        color: Colors.white,
+                                  Positioned(
+                                      child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                            horizontal: 10, vertical: 10),
+                                        child: Container(
+                                          height: 50,
+                                          width: 50,
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(25),
+                                            color: Colors.white,
+                                          ),
+                                          child: const Icon(
+                                            Icons.favorite,
+                                            color: Color(0xFF537EF1),
+                                            size: 25,
+                                          ),
+                                        ),
                                       ),
-                                      child: const Icon(
-                                        Icons.favorite,
-                                        color: Color(0xFF537EF1),
-                                        size: 25,
-                                      ),
-                                    ),
-                                  ),
+                                    ],
+                                  ))
                                 ],
-                              ))
-                            ],
+                              ),
+                            ),
                           ),
                         ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 20),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(ListTravel.listTravel[index].name,
-                                    style: const TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 18)),
-                                const SizedBox(height: 5),
-                                Text(ListTravel.listTravel[index].date,
-                                    style: const TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 15,
-                                        color: Colors.grey))
-                              ],
-                            ),
-                            const Icon(Icons.arrow_forward_ios_rounded,
-                                size: 18, color: Colors.grey)
-                          ],
-                        ),
-                      )
-                    ],
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 20),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(ListTravel.listTravel[index].name,
+                                      style: const TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 18)),
+                                  const SizedBox(height: 5),
+                                  Text(ListTravel.listTravel[index].date,
+                                      style: const TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 15,
+                                          color: Colors.grey))
+                                ],
+                              ),
+                              const Icon(Icons.arrow_forward_ios_rounded,
+                                  size: 18, color: Colors.grey)
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                 ),
               );
