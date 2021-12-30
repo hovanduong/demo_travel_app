@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:travel_app/src/botton_bar/navigation_screen.dart';
 import 'package:travel_app/src/onboarding/components/widget_text.dart';
 import 'package:travel_app/src/resource/model/onboarding.dart';
 
@@ -13,11 +12,7 @@ class OnboardingScreen extends StatefulWidget {
 }
 
 class _OnboardingScreenState extends State<OnboardingScreen> {
-  // List images = [
-  //   'assets/svg/5.png',
-  //   'assets/svg/6.png',
-  //   'assets/svg/5.png',
-  // ];
+
   List<OnBoarding> onBoarding = [
     OnBoarding(image: 'assets/svg/5.png', colors: 'FF68e1fd', radix: 18),
     OnBoarding(image: 'assets/svg/6.png', colors: 'FFFEBE96', radix: 19),
@@ -42,10 +37,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           curentPage = curentPage + 1;
           if (curentPage == onBoarding.length - 1) {
             Future.delayed(const Duration(seconds: 3), () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => NavigationScreen()),
-              );
+              // Navigator.push(
+              //   context,
+              //   MaterialPageRoute(builder: (context) => NavigationScreen()),
+              // );
             });
           }
         });

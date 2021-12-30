@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:travel_app/src/botton_bar/navigation_screen.dart';
 
 import 'src/onboarding/onboarding_screen.dart';
 

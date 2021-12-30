@@ -22,14 +22,12 @@ class _HomeDetailsScreenState extends State<HomeDetailsScreen> {
           child: SingleChildScrollView(
         child: Column(
           children: [
-            Hero(
-                tag: widget.travel.id,
-                child: SizedBox(
-                    width: double.infinity,
-                    child: Image.asset(
-                      widget.travel.image,
-                      fit: BoxFit.cover,
-                    ))),
+            SizedBox(
+                width: double.infinity,
+                child: Image.asset(
+                  widget.travel.image,
+                  fit: BoxFit.cover,
+                )),
             const Padding(
               padding: EdgeInsets.all(5),
               child: Text(
