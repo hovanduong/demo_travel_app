@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:travel_app/src/home/home_screen.dart';
 
 import 'src/onboarding/onboarding_screen.dart';
 
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: OnboardingScreen(),
+      home: HomeScreen(),
     );
   }
 }

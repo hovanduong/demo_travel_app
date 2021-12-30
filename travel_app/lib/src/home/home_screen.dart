@@ -13,14 +13,33 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-        child: Column(
-          children: [
-            const SizedBox(height: 30),
-            ...List.generate(ListTravel.listTravel.length, (index) {
-              return Padding(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 10, horizontal: 40),
-                child: Container(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 25),
+          child: Column(
+            children: [
+              const SizedBox(height: 30),
+              // tieu de
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text('Home',
+                      style:
+                          TextStyle(fontSize: 40, fontWeight: FontWeight.bold)),
+                  Container(
+                    height: 50,
+                    width: 50,
+                    decoration: const BoxDecoration(
+                        color: Colors.blue,
+                        borderRadius: BorderRadius.all(Radius.circular(25))),
+                    child: const Icon(Icons.search),
+                  )
+                ],
+              ),
+              //tab bar
+              
+              // danh sach
+              ...List.generate(ListTravel.listTravel.length, (index) {
+                return Container(
                   height: 200,
                   width: double.infinity,
                   decoration: BoxDecoration(
@@ -97,10 +116,10 @@ class _HomeScreenState extends State<HomeScreen> {
                       )
                     ],
                   ),
-                ),
-              );
-            })
-          ],
+                );
+              })
+            ],
+          ),
         ),
       ),
     );
