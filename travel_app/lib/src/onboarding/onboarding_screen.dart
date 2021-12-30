@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:travel_app/src/home/home_screen.dart';
 import 'package:travel_app/src/onboarding/components/widget_text.dart';
 import 'package:travel_app/src/resource/model/onboarding.dart';
 
@@ -37,10 +38,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           curentPage = curentPage + 1;
           if (curentPage == onBoarding.length - 1) {
             Future.delayed(const Duration(seconds: 3), () {
-              // Navigator.push(
-              //   context,
-              //   MaterialPageRoute(builder: (context) => NavigationScreen()),
-              // );
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => HomeScreen()),
+              );
             });
           }
         });
