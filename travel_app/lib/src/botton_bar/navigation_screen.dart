@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:travel_app/src/home/home_screen.dart';
 
 // ignore: must_be_immutable
 class NavigationScreen extends StatefulWidget {
@@ -54,9 +53,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
 
   int currentIndex = 0;
   List<Widget> widgetOptions = <Widget>[
-    HomeScreen(),
     Text('data'),
-    HomeScreen(),
     Text('data1'),
   ];
 
